@@ -1,0 +1,9 @@
+version: 1.0
+csvfile: \\jlm-pc-shlomi\c$\temp\AppScan.csv
+credentials:
+    user: xconnect\xcpcadmin
+    authMethod: promptForPassword
+nodes:
+    # - 92.240.15.235
+    - 172.16.101.101
+

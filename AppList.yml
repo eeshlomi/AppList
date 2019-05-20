@@ -2,7 +2,9 @@ version: 1.0
 csvfile: \\jlm-pc-shlomi\c$\temp\AppScan.csv
 credentials:
     user: xconnect\xcpcadmin
-    authMethod: promptForPassword
+    # possible options for authMethod:
+    # SCRAM to prompt for password
+    authMethod: SCRAM
 nodes:
     # - 92.240.15.235
     - 172.16.101.101

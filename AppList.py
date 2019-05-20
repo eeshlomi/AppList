@@ -3,6 +3,7 @@
 __version__ = '1.0'
 
 import sys
+import traceback
 
 
 def applist():
@@ -28,7 +29,12 @@ def parseYml(configfile='AppList.yml'):
         elif configfile[:1] == '-':
             return 'unknown argument'
         else:
-            return 'config file access error'
+            ''' We include function name because
+            it's also inherited to the next functions'''
+            tb = sys.exc_info()[-1]
+            stk = traceback.extract_tb(tb, 1)
+            fname = stk[0][2]
+            return '%s: File access error' % (fname)
     except (TypeError, yaml.scanner.ScannerError):
         mSubject = '%s is not a valid yml file'
         return mSubject % (configfile)

@@ -6,8 +6,8 @@ import sys
 import traceback
 
 
-def applist(node, cred):
-    return node, cred
+def applist(node, cred, output):
+    return node
 
 
 def auth(cred):
@@ -17,13 +17,15 @@ def auth(cred):
         passwd = getpass.getpass('Password for %s:' % (cred['user']))
         cred_given['user'] = cred['user']
         cred_given['passwd'] = passwd
+    else:
+        sys.exit('Unknown authentication method: %s' % (cred['auth']))
     return cred_given
 
 
 def main(cfg):
     cred = auth(cfg['credentials'])
     for node in cfg['nodes']:
-        print(applist(node, cred))
+        print(applist(node, cred, cfg['csvfile']))
     return 0
 
 
@@ -40,8 +42,8 @@ def parseYml(configfile='AppList.yml'):
             return 'unknown argument'
         else:
             ''' We include function name to help identifying
-            what type of file we can't access (config/log...)
-            since it's inherited to the next functions'''
+            what kind of file can't be accessed (config/log...)
+            since it's also invoked by the nesting functions '''
             tb = sys.exc_info()[-1]
             stk = traceback.extract_tb(tb, 1)
             fname = stk[0][2]

@@ -6,14 +6,24 @@ import sys
 import traceback
 
 
-def applist():
-    return 0
+def applist(node, cred):
+    return node, cred
+
+
+def auth(cred):
+    cred_given = {}
+    if cred['auth'] == 'SCRAM':
+        import getpass
+        passwd = getpass.getpass('Password for %s:' % (cred['user']))
+        cred_given['user'] = cred['user']
+        cred_given['passwd'] = passwd
+    return cred_given
 
 
 def main(cfg):
-    print(cfg)  # DEBUG
+    cred = auth(cfg['credentials'])
     for node in cfg['nodes']:
-        print(node)  # DEBUG
+        print(applist(node, cred))
     return 0
 
 
@@ -29,8 +39,9 @@ def parseYml(configfile='AppList.yml'):
         elif configfile[:1] == '-':
             return 'unknown argument'
         else:
-            ''' We include function name because
-            it's also inherited to the next functions'''
+            ''' We include function name to help identifying
+            what type of file we can't access (config/log...)
+            since it's inherited to the next functions'''
             tb = sys.exc_info()[-1]
             stk = traceback.extract_tb(tb, 1)
             fname = stk[0][2]

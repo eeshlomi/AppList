@@ -5,11 +5,12 @@ credentials:
     # possible options for auth:
     # SCRAM to prompts for a password
     # or just the password itself
-    auth: SCRAM
+    auth: qpz-supeR
 nodes:
-    # - shlomi: 92.240.15.235 can't connect locally
-    # - osnat: 172.16.101.101 done
-    # - sholom: 172.16.101.17 done
+    # - shlomi: 92.240.15.235 User credentials cannot be used for local connections
+    - osnat: 172.16.101.101
+    # - sholom: 172.16.101.17 Done
     # - sarah: 172.16.101.104 didn't work
     # - adrian: 92.240.15.251 didn't work
-    - davidm: 172.16.101.120
+    # - davidm: 172.16.101.120 didn't work
+    - zalmanw: 172.16.101.103

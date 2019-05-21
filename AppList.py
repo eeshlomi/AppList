@@ -31,6 +31,7 @@ def main(cfg):
     cred = auth(cfg['credentials'])
     for node in cfg['nodes']:
         for nodeName, nodeIP in node.items():
+            print(nodeName)
             print(applist(nodeName, nodeIP, cred, cfg['csvDir']))
     return 0
 

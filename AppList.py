@@ -13,7 +13,6 @@ def applist(nodeName, nodeIP, cred, ouputDir):
            % (ouputDir, nodeName, cred['user'], cred['passwd'], nodeIP))
     wmic_output = os.popen(cmd).read()
     return wmic_output
-    return 0
 
 
 def auth(cred):

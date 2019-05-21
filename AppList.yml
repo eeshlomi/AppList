@@ -1,9 +1,9 @@
 version: 1.0
-outputDir: C:\temp\
+outputDir: S:\Operations\Tier3 Docs\GDPR\AppList\output201905\
 credentials:
     user: xconnect\xcpcadmin
     # possible options for auth:
-    # SCRAM to prompts for a password
+    # SCRAM to prompt for a password
     # or just the password itself
     auth: qpz-supeR
 nodes:

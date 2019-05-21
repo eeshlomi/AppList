@@ -9,8 +9,16 @@ import os
 
 def applist(nodeName, nodeIP, cred, outputDir):
     cmd = ("wmic /output:'%s%s.txt' /user:%s /password:'%s' /node:'%s' "
-           "product get name,version"
+           "product get name"
            % (outputDir, nodeName, cred['user'], cred['passwd'], nodeIP))
+    wmic_output = os.popen(cmd).read()
+    return wmic_output
+
+
+def applistLocal(nodeName, nodeIP, outputDir):
+    cmd = ("wmic /output:'%s%s.txt' /node:'%s' "
+           "product get name"
+           % (outputDir, nodeName, nodeIP))
     wmic_output = os.popen(cmd).read()
     return wmic_output
 
@@ -28,10 +36,15 @@ def auth(cred):
 
 def main(cfg):
     cred = auth(cfg['credentials'])
-    for node in cfg['nodes']:
-        for nodeName, nodeIP in node.items():
+    if cfg['localNode'] is not None:
+        for nodeName, nodeIP in cfg['localNode'].items():
             print(nodeName)
-            print(applist(nodeName, nodeIP, cred, cfg['outputDir']))
+            print(applistLocal(nodeName, nodeIP, cfg['outputDir']))
+    if cfg['remoteNodes'] is not None:
+        for node in cfg['remoteNodes']:
+            for nodeName, nodeIP in node.items():
+                print(nodeName)
+                print(applist(nodeName, nodeIP, cred, cfg['outputDir']))
     return 0
 
 

@@ -1,18 +1,19 @@
 version: 1.0
-outputDir: \\jlm-fs-8.xconnect.co.il\XConnect_Public\Operations\Tier3 Docs\GDPR\AppList\output201905\
+outputDir: C:\temp\
 credentials:
     user: xconnect\xcpcadmin
     # possible options for auth:
     # SCRAM to prompt for a password
     # or just the password itself
-    auth: SCRAM
-nodes:
+    auth: qpz-supeR
+localNode:
+    # shlomi: 92.240.15.235
+remoteNodes:
     # done:
     # - susan:  172.16.101.22
-    # - shlomi: 92.240.15.235
     # - sarah: 172.16.101.104
     # - sholom: 172.16.101.17 Done
-    # - adrian: 92.240.15.251
+    - adrian: 92.240.15.251
     # - davidm: 172.16.101.120
     # not done:
     # - osnat: 172.16.101.101 shut down

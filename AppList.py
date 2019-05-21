@@ -4,28 +4,34 @@ __version__ = '1.0'
 
 import sys
 import traceback
+import os
 
 
-def applist(node, cred, output):
-    return node
+def applist(nodeName, nodeIP, cred, csvDir):
+    cmd = ("wmic /output:%s%s.csv /user:%s /password:'%s' /node:'%s' "
+           "product get name,version"
+           % (csvDir, nodeName, cred['user'], cred['passwd'], nodeIP))
+    wmic_output = os.popen(cmd).read()
+    return wmic_output
+    return 0
 
 
 def auth(cred):
-    cred_given = {}
+    cred_given = {'user': cred['user']}
     if cred['auth'] == 'SCRAM':
         import getpass
         passwd = getpass.getpass('Password for %s:' % (cred['user']))
-        cred_given['user'] = cred['user']
         cred_given['passwd'] = passwd
     else:
-        sys.exit('Unknown authentication method: %s' % (cred['auth']))
+        cred_given['passwd'] = cred['auth']
     return cred_given
 
 
 def main(cfg):
     cred = auth(cfg['credentials'])
     for node in cfg['nodes']:
-        print(applist(node, cred, cfg['csvfile']))
+        for nodeName, nodeIP in node.items():
+            print(applist(nodeName, nodeIP, cred, cfg['csvDir']))
     return 0
 
 

@@ -1,12 +1,15 @@
 version: 1.0
-csvfile: \\jlm-pc-shlomi\c$\temp\AppScan.csv
+csvDir: C:\temp\
 credentials:
     user: xconnect\xcpcadmin
     # possible options for auth:
-    # only SCRAM is currently supported,
-    # which prompts for a password
-    auth: SCRAM
+    # SCRAM to prompts for a password
+    # or just the password itself
+    auth: qpz-sdupeR
 nodes:
-    # - 92.240.15.235
-    - 172.16.101.101
-
+    # - shlomi: 92.240.15.235 can't connect locally
+    # - osnat: 172.16.101.101 done
+    # - sholom: 172.16.101.17 done
+    # - sarah: 172.16.101.104 didn't work
+    # - adrian: 92.240.15.251 didn't work
+    - davidm: 172.16.101.120

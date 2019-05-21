@@ -4,17 +4,16 @@
 def parse_wmic_output(dir, files, ext):
     result = {}
     for file in files:
-        file = dir+file+ext
-        print(file)
-        with open(file, encoding='utf-16-le') as f:
+        fullPath = dir+file+ext
+        with open(fullPath, encoding='utf-16-le') as f:
             next(f)  # to skip the header
             for line in f:
                 line = line.strip()
                 if len(line) > 1:
                     try:
-                        result[line].append('b')
+                        result[line].append(file)
                     except KeyError:
-                        result[line] = ['a']
+                        result[line] = [file]
     return result
 
 

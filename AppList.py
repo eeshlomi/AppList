@@ -7,10 +7,10 @@ import traceback
 import os
 
 
-def applist(nodeName, nodeIP, cred, ouputDir):
-    cmd = ("wmic /output:%s%s.txt /user:%s /password:'%s' /node:'%s' "
+def applist(nodeName, nodeIP, cred, outputDir):
+    cmd = ("wmic /output:'%s%s.txt' /user:%s /password:'%s' /node:'%s' "
            "product get name,version"
-           % (ouputDir, nodeName, cred['user'], cred['passwd'], nodeIP))
+           % (outputDir, nodeName, cred['user'], cred['passwd'], nodeIP))
     wmic_output = os.popen(cmd).read()
     return wmic_output
 
@@ -31,7 +31,7 @@ def main(cfg):
     for node in cfg['nodes']:
         for nodeName, nodeIP in node.items():
             print(nodeName)
-            print(applist(nodeName, nodeIP, cred, cfg['ouputDir']))
+            print(applist(nodeName, nodeIP, cred, cfg['outputDir']))
     return 0
 
 

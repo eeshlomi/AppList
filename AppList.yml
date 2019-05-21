@@ -1,5 +1,5 @@
 version: 1.0
-csvDir: C:\temp\
+outputDir: C:\temp\
 credentials:
     user: xconnect\xcpcadmin
     # possible options for auth:
@@ -7,10 +7,12 @@ credentials:
     # or just the password itself
     auth: qpz-supeR
 nodes:
-    # - shlomi: 92.240.15.235 User credentials cannot be used for local connections
-    - osnat: 172.16.101.101
+    # done:
+    # - shlomi: 92.240.15.235
+    # - sarah: 172.16.101.104
     # - sholom: 172.16.101.17 Done
-    # - sarah: 172.16.101.104 didn't work
-    # - adrian: 92.240.15.251 didn't work
-    # - davidm: 172.16.101.120 didn't work
-    - zalmanw: 172.16.101.103
+    # - adrian: 92.240.15.251
+    # - davidm: 172.16.101.120
+    # not done:
+    # - osnat: 172.16.101.101 shut down
+    # - zalmanw: 172.16.101.103 no privileges

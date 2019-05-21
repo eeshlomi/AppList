@@ -5,7 +5,7 @@ credentials:
     # possible options for auth:
     # SCRAM to prompts for a password
     # or just the password itself
-    auth: qpz-sdupeR
+    auth: SCRAM
 nodes:
     # - shlomi: 92.240.15.235 can't connect locally
     # - osnat: 172.16.101.101 done

@@ -70,11 +70,11 @@ def parseYml(configfile='AppList.yml'):
             fname = stk[0][2]
             return '%s: File access error' % (fname)
     except (TypeError, yaml.scanner.ScannerError):
-        mSubject = '%s is not a valid yml file'
-        return mSubject % (configfile)
+        msg = '%s is not a valid yml file'
+        return msg % (configfile)
     except KeyError:
-        mSubject = 'The key %s is missing in %s'
-        return mSubject % (sys.exc_info()[1], configfile)
+        msg = 'The key %s is missing in %s'
+        return msg % (sys.exc_info()[1], configfile)
 
 
 if __name__ == '__main__':

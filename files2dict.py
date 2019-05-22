@@ -19,6 +19,6 @@ def parse_wmic_output(dir, files, ext):
 
 if __name__ == '__main__':
     dir = 'C:\\temp\\'
-    files = ['test1', 'test2']
+    files = ['adrian', 'shlomi']
     ext = '.0'
     print(parse_wmic_output(dir, files, ext))

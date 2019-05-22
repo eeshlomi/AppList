@@ -1,5 +1,5 @@
 version: 1.0
-outputDir: C:\temp\
+outputDir: \\jlm-fs-8.xconnect.co.il\XConnect_Public\Operations\Tier3 Docs\GDPR\AppList\output201905\
 credentials:
     user: xconnect\xcpcadmin
     # possible options for auth:
@@ -9,12 +9,12 @@ credentials:
 localNode:
     # shlomi: 92.240.15.235
 remoteNodes:
-    # done:
+    # - osnat: 172.16.101.101
+    # - simma: 172.16.101.102
+    # - adrian: 92.240.15.251
     # - susan:  172.16.101.22
-    # - sarah: 172.16.101.104
-    # - sholom: 172.16.101.17 Done
-    - adrian: 92.240.15.251
     # - davidm: 172.16.101.120
+    # - sholom: 172.16.101.17
     # not done:
-    # - osnat: 172.16.101.101 shut down
-    # - zalmanw: 172.16.101.103 no privileges
+    # - sarah: 172.16.101.104 old laptop
+    # - zalmanw: 172.16.101.103 xcpcadmins not a member of local Administrators

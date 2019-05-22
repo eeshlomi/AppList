@@ -8,7 +8,7 @@ import os
 
 
 def applist(nodeName, nodeIP, cred, outputDir):
-    cmd = ("wmic /output:'%s%s.txt' /user:%s /password:'%s' /node:'%s' "
+    cmd = ("wmic /output:'%s%s' /user:%s /password:'%s' /node:'%s' "
            "product get name"
            % (outputDir, nodeName, cred['user'], cred['passwd'], nodeIP))
     wmic_output = os.popen(cmd).read()
@@ -16,7 +16,7 @@ def applist(nodeName, nodeIP, cred, outputDir):
 
 
 def applistLocal(nodeName, nodeIP, outputDir):
-    cmd = ("wmic /output:'%s%s.txt' /node:'%s' "
+    cmd = ("wmic /output:'%s%s' /node:'%s' "
            "product get name"
            % (outputDir, nodeName, nodeIP))
     wmic_output = os.popen(cmd).read()
@@ -30,6 +30,8 @@ def auth(cred):
         passwd = getpass.getpass('Password for %s:' % (cred['user']))
         cred_given['passwd'] = passwd
     else:
+        print('WARNING: password is stored in the config file. '
+              'Please use SCRAM instead')
         cred_given['passwd'] = cred['auth']
     return cred_given
 

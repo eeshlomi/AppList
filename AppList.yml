@@ -15,6 +15,10 @@ remoteNodes:
     # - susan:  172.16.101.22
     # - davidm: 172.16.101.120
     # - sholom: 172.16.101.17
-    # not done:
+    ### add to csv ###
+    # - conf: 172.16.101.100
+    # - noc-mon: 172.16.101.130
+    ### have problems ###
     # - sarah: 172.16.101.104 old laptop
     # - zalmanw: 172.16.101.103 xcpcadmins not a member of local Administrators
+    aida: 92.240.15.202

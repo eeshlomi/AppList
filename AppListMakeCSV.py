@@ -49,8 +49,8 @@ def parseYml(configfile='AppList.yml'):
             stk = traceback.extract_tb(tb, 1)
             fname = stk[0][2]
             return '%s: File access error' % (fname)
-    except (TypeError, yaml.scanner.ScannerError):
-        msg = '%s is not a valid yml file'
+    except (TypeError, AttributeError, yaml.scanner.ScannerError):
+        msg = 'Unexpected yaml format: %s'
         return msg % (configfile)
     except KeyError:
         msg = 'The key %s is missing in %s'

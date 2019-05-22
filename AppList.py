@@ -62,9 +62,9 @@ def parseYml(configfile='AppList.yml'):
         elif configfile[:1] == '-':
             return 'unknown argument'
         else:
-            ''' We include function name to help identifying
-            what kind of file can't be accessed (config/log...)
-            since it's also invoked by the nesting functions '''
+            ''' Extracting function name to help identifying
+            what kind of file causes the error (config/log...)
+            since this exception also invoked by nesting functions '''
             tb = sys.exc_info()[-1]
             stk = traceback.extract_tb(tb, 1)
             fname = stk[0][2]

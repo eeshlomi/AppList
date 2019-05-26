@@ -22,3 +22,4 @@ remoteNodes:
     ### the following computers have problems and not been done yet ###
     # - sarah: 172.16.101.104 old laptop
     # - zalmanw: 172.16.101.103 xcpcadmins not a member of local Administrators
+    - rachel: 172.16.101.128

@@ -3,8 +3,8 @@
 __version__ = '1.0'
 
 import sys
-import traceback
 import os
+from parseConf import parseYml
 
 
 def applist(nodeName, nodeIP, cred, outputDir):
@@ -50,38 +50,12 @@ def main(cfg):
     return 0
 
 
-def parseYml(configfile='AppList.yml'):
-    import yaml
-    try:
-        with open(configfile, 'r') as ymlfile:
-            cfg = yaml.load(ymlfile, Loader=yaml.FullLoader)
-        return main(cfg)
-    except IOError:  # FileNotFoundError
-        if configfile == '-h' or configfile == '--help':
-            return 'Usage: AppList.py [config-file]'
-        elif configfile[:1] == '-':
-            return 'unknown argument'
-        else:
-            ''' Extracting function name to help identifying
-            what kind of file causes the error (config/log...)
-            since this exception also invoked by nesting functions '''
-            tb = sys.exc_info()[-1]
-            stk = traceback.extract_tb(tb, 1)
-            fname = stk[0][2]
-            return '%s: File access error' % (fname)
-    except (TypeError, AttributeError, yaml.scanner.ScannerError):
-        msg = 'Unexpected yaml format: %s'
-        return msg % (configfile)
-    except KeyError:
-        msg = 'The key %s is missing in %s'
-        return msg % (sys.exc_info()[1], configfile)
-
-
 if __name__ == '__main__':
     if len(sys.argv) > 2:
         configfile = '--help'
     elif len(sys.argv) == 2:
         configfile = sys.argv[1]
     else:
-        configfile = 'AppList.yml'
-    sys.exit(parseYml(configfile))
+        cfg = parseYml('AppList.yml', 'AppList')
+    if len(cfg):
+        sys.exit(main(cfg))

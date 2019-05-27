@@ -18,8 +18,8 @@ remoteNodes:
     # - conf: 172.16.101.100
     # - noc-mon: 172.16.101.130
     # - aida: 92.240.15.202
+    # - rachel: 172.16.101.128
     ### ALL COMPUTERS LISTED UNTIL THIS LINE WERE EXAMINED ON MAY 22, 2019 ###
     ### the following computers have problems and not been done yet ###
     # - sarah: 172.16.101.104 old laptop
     # - zalmanw: 172.16.101.103 xcpcadmins not a member of local Administrators
-    - rachel: 172.16.101.128

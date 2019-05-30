@@ -9,17 +9,21 @@ credentials:
 localNode:
     # shlomi: 92.240.15.235
 remoteNodes:
-    # - osnat: 172.16.101.101
-    # - simma: 172.16.101.102
-    # - adrian: 92.240.15.251
-    # - susan:  172.16.101.22
-    # - davidm: 172.16.101.120
-    # - sholom: 172.16.101.17
+    # - rachel: 172.16.101.128
     # - conf: 172.16.101.100
+    # - adrian: 92.240.15.251
+    # - romulo: 92.240.15.182
+    # - simma: 172.16.101.102
+    # - sholom: 172.16.101.17
+    # - sam: 172.16.101.129
     # - noc-mon: 172.16.101.130
     # - aida: 92.240.15.202
-    # - rachel: 172.16.101.128
+    # - simon: 172.16.101.105
+    # - susan:  172.16.101.22
+    # - osnat: 172.16.101.101
+    # - davidm: 172.16.101.120
     ### ALL COMPUTERS LISTED UNTIL THIS LINE WERE EXAMINED ON MAY 22, 2019 ###
-    ### the following computers have problems and not been done yet ###
-    # - sarah: 172.16.101.104 old laptop
-    # - zalmanw: 172.16.101.103 xcpcadmins not a member of local Administrators
+    ### the following computers have been done but not added to the CSV
+    # - elliot: 172.16.101.27
+    # - zalman: 172.16.101.103
+    # - sarah: 172.16.101.110

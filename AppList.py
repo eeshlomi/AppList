@@ -56,6 +56,7 @@ if __name__ == '__main__':
     elif len(sys.argv) == 2:
         configfile = sys.argv[1]
     else:
-        cfg = parseYml('AppList.yml', 'AppList')
+        configfile = 'AppList.yml'
+    cfg = parseYml(configfile, 'AppList')
     if len(cfg):
         sys.exit(main(cfg))
